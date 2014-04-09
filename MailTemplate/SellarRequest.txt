@@ -1,0 +1,22 @@
+
+Dear ###SellarName###,
+
+
+I'm writing from ###City### and I'm interested in the 
+###Year### ###Make### ###Model### you have listed on UnitedCarExchange.com for ###price###. 
+I would like to know more about this vehicle. I can be reached by phone at
+###Phone###.
+
+<b>Additional Comments</b>
+
+###Comments###
+
+Thanks
+###firstName### ###lastName###
+    
+
+
+
+
+
+

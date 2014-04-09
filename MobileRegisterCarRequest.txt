@@ -1,0 +1,22 @@
+Dear Support,
+
+
+###Cusname### has requested for registration
+
+======================
+Contact information:
+
+Customer Name: ###Cusname###
+Phone Number : ###Phone###
+Email Address: ###Email###
+    
+
+======================
+
+Regards,
+Sales Team
+
+
+
+
+

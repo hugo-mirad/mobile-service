@@ -1354,12 +1354,7 @@ public class CarService : System.Web.Services.WebService
 
 
          CarsInfo.UsedCarsInfo OBJ = new CarsInfo.UsedCarsInfo();
-
-
-
          string sort = string.Empty;
-
-    
          objCarsFilter.CarMakeid = carMake;
          objCarsFilter.CarModalId = CarModal;
          objCarsFilter.Orderby = Orderby;

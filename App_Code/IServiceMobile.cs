@@ -139,6 +139,10 @@ public interface IServiceMobile
             BodyStyle = WebMessageBodyStyle.WrappedResponse)]
     List<MakeCountInfo> GetMakeCounts(string AuthenticationID, string CustomerID);
 
-   
-    
+    [OperationContract]
+    [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "/MobileCarsNotificationSearch/{carMake}/{CarModal}/{Mileage}/{Year}/{Price}/{Orderby}/{Zipcode}/{exteriorColor}/{interiorColor}/{Transmission}/{VehiceCondition}/{DriveTrain}/{numberOfCylinder}/{numberOfDoors}/{fuelType}/{AuthenticationID}/{CustomerID}",
+            BodyStyle = WebMessageBodyStyle.WrappedResponse)]
+    List<CarsInfo.UsedCarsInfo> MobileCarsNotificationSearch(string carMake, string CarModal,
+                                 string Mileage, string Year, string Price, string Orderby, string Zipcode, string exteriorColor, string interiorColor,
+           string Transmission, string VehiceCondition, string DriveTrain, string numberOfCylinder, string numberOfDoors, string fuelType, string AuthenticationID, string CustomerID);
 }

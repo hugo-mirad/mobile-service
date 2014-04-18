@@ -1336,5 +1336,127 @@ public class CarService : System.Web.Services.WebService
          }
          return returnPostingID;
      }
+
+
+     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Xml)]
+     [WebMethod(EnableSession = true)]
+     public List<CarsInfo.UsedCarsInfo> MobileCarsNotificationSearch(string carMake, string CarModal,
+                                  string Mileage, string Year, string Price, string Orderby, string Zipcode,string exteriorColor, string interiorColor,
+            string Transmission, string VehiceCondition, string DriveTrain, string numberOfCylinder, string numberOfDoors, string fuelType ,string AuthenticationID, string CustomerID)
+     {
+
+         CarsFilter objCarsFilter = new CarsFilter();
+
+
+         Filter objFilter = new Filter();
+
+         List<CarsInfo.UsedCarsInfo> objFilterdata = new List<CarsInfo.UsedCarsInfo>();
+
+
+         CarsInfo.UsedCarsInfo OBJ = new CarsInfo.UsedCarsInfo();
+
+
+
+         string sort = string.Empty;
+
+    
+         objCarsFilter.CarMakeid = carMake;
+         objCarsFilter.CarModalId = CarModal;
+         objCarsFilter.Orderby = Orderby;
+         objCarsFilter.ZipCode = Zipcode;
+
+         switch (Mileage)
+         {
+             case "Mileage1":
+                 objCarsFilter.Mileage1 = "Mileage1";
+                 break;
+             case "Mileage2":
+                 objCarsFilter.Mileage2 = "Mileage2";
+                 break;
+             case "Mileage3":
+                 objCarsFilter.Mileage3 = "Mileage3";
+                 break;
+             case "Mileage4":
+                 objCarsFilter.Mileage4 = "Mileage4";
+                 break;
+             case "Mileage5":
+                 objCarsFilter.Mileage5 = "Mileage5";
+                 break;
+             case "Mileage6":
+                 objCarsFilter.Mileage6 = "Mileage6";
+                 break;
+             case "Mileage7":
+                 objCarsFilter.Mileage7 = "Mileage7";
+                 break;
+         }
+         switch (Year)
+         {
+             case "Year1a":
+                 objCarsFilter.Year1a = "Year1a";
+                 break;
+             case "Year1b":
+                 objCarsFilter.Year1b = "Year1b";
+                 break;
+             case "Year1":
+                 objCarsFilter.Year1 = "Year1";
+                 break;
+             case "Year2":
+                 objCarsFilter.Year2 = "Year2";
+                 break;
+             case "Year3":
+                 objCarsFilter.Year3 = "Year3";
+                 break;
+             case "Year4":
+                 objCarsFilter.Year4 = "Year4";
+                 break;
+             case "Year5":
+                 objCarsFilter.Year5 = "Year5";
+                 break;
+             case "Year6":
+                 objCarsFilter.Year6 = "Year6";
+                 break;
+             case "Year7":
+                 objCarsFilter.Year7 = "Year7";
+                 break;
+         }
+         switch (Price)
+         {
+             case "Price1":
+                 objCarsFilter.Price1 = "Price1";
+                 break;
+             case "Price2":
+                 objCarsFilter.Price2 = "Price2";
+                 break;
+             case "Price3":
+                 objCarsFilter.Price3 = "Price3";
+                 break;
+             case "Price4":
+                 objCarsFilter.Price4 = "Price4";
+                 break;
+             case "Price5":
+                 objCarsFilter.Price5 = "Price5";
+                 break;
+         };
+
+
+         NotificationBL objFilterCars = new NotificationBL();
+         MobileBL objMobileBL = new MobileBL();
+         if (CustomerID.Trim() != "")
+         {
+             string parameter = carMake + "," + CarModal + "," + Mileage + "," + Year + "," + Price + "," +Orderby + "," + Zipcode;
+             DataSet dsSaveCustInfo = objMobileBL.SaveMobileCustomerInfo("MobileCarsNotificationSearch", CustomerID, AuthenticationID, parameter);
+         }
+         if (AuthenticationID == ConfigurationManager.AppSettings["AppleID"].ToString())
+         {
+             objFilterdata = (List<CarsInfo.UsedCarsInfo>)objFilterCars.GetMobileNotificationSearch(objCarsFilter, exteriorColor.Trim(), interiorColor.Trim(), Transmission.Trim(), VehiceCondition.Trim(),
+                               DriveTrain.Trim(), numberOfCylinder.Trim(), numberOfDoors.Trim(), fuelType.Trim());
+
+         }
+         return objFilterdata;
+
+     }
+
+
+
 }
 
